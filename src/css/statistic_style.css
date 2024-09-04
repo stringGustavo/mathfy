@@ -1,0 +1,52 @@
+@import url("_variables.css");
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap');
+
+#main {
+    color: white;
+}
+
+#main .container {
+    margin: 15px;
+}
+
+#main h1 {
+    font-size: 2em;
+    font-family: "Edu AU VIC WA NT Hand";
+    font-weight: 400;
+    margin: 10px 10px 80px 10px;
+}
+
+#main .container section h1 i {
+    color: rgb(204, 238, 83);
+}
+
+.statistics {
+    margin-top: 10px;
+    width: 300px;
+}
+
+.btn_box {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    font-size: 1em;
+    margin-top: 10px;
+    padding: 5px 20px;
+}
+
+#main .container .section_result h2 {
+    font-family: "Edu AU VIC WA NT Hand";
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+
+#main .container .section_result .results {
+    display: flex;
+    flex-direction: column;
+    color: rgb(255, 255, 255);
+    background-color: #11101d;
+    border-radius: 5px;
+    line-height: 2em;
+}

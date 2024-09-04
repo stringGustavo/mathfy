@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/_default.css">
+    <link rel="stylesheet" href="src/css/statistic_style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="master"></div>
+
+    <main id="main">
+        <div class="container">
+            <section>
+                <h1>Estatística Descritiva &nbsp;<i class="material-symbols-rounded">feedback</i></h1>
+            </section>
+            <section>
+                <div>
+                    <label for="input">Digite números separados por espaço</label>
+                </div>
+                <input type="text" id="input" class="input statistics" placeholder="1 2 3 4 5 6 7 8 9 ...">
+                <div class="btn_box">
+                    <button class="button" type="button">Ver resultado</button>
+                </div>
+            </section>
+            <section class="section_result">
+                <h2>Resultados</h2>
+                <div class="results">
+                    <p class="mean"></p>
+                    <p class="median"></p>
+                    <p class="mode"></p>
+                    <p class="stdDeviation"></p>
+                    <p class="coefficientVariation"></p>
+                    <p class="coefficientSkewness"></p>
+                    <p class="kurtosis"></p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="/src/js/jquery-3.7.1.min.js"></script>
+    <script src="src/js/loadMaster.js"></script>
+    <script type="module" src="src/js_math/js_statistic_math.js"></script>
+    <script type="module" src="src/js_math/js_statistic_class.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>

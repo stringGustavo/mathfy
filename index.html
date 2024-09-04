@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/_default.css">
+    <link rel="stylesheet" href="src/css/index_style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="master"></div>
+
+    <main id="main">
+        <div class="welcome_msg">
+            <h1>Bem-vindo(a) ao <span>Mathfy</span></h1>
+            <h2 id="change">onde números ganham vida!</h2>
+            <h3>Realize suas operações matemáticas de forma fácil e rápida.</h3>
+        </div>
+    </main>
+
+    <footer id="footer">
+
+    </footer>
+
+    <script>
+        const numbers = "1948 3048293 302817 1039!";
+        const text = "onde números ganham vida!";
+        const textElement = document.getElementById('change');
+        let index = 0;
+
+        function replaceText() {
+            if (index < text.length) {
+                textElement.innerHTML = text.slice(0, index + 1) + numbers.slice(index + 1);
+                index++;
+                setTimeout(replaceText, 100);
+            }
+        }
+        replaceText();
+    </script>
+
+
+    <script src="/src/js/jquery-3.7.1.min.js"></script>
+    <script src="src/js/loadMaster.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+@import url("_variables.css");
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap');
+
+.welcome_msg {
+    margin: auto;
+}
+
+#main h1 {
+    font-size: 3.5em;
+}
+
+#main h1 span {
+    font-family: 'Edu AU VIC WA NT Hand';
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 0px 15px 0 15px;
+}
