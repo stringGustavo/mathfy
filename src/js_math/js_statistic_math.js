@@ -8,30 +8,28 @@ document.querySelector('.button').addEventListener('click', () => {
 
     let sample = input.split(" ");
     sample = sample.map(Number);
-    let sampleSize = sample.length;
 
-    let mean = stst.mean(sample);
-    let mode = stst.mode(sample);
-    let median = stst.median(sample.sort());
-    let standardDeviationValues = stst.calculateStandardDeviationValues(sample, mean);
-    let standardDeviation = stst.calculateStandardDeviation(standardDeviationValues, sampleSize);
-    let coefficientVariation = stst.coefficientVariation(standardDeviation, mean);
-    let coefficientSkewnessValues = stst.calculateCoefficientSkewnessValues(sample, mean, standardDeviation);
-    let coefficientSkewness = stst.calculateCoefficientSkewness(coefficientSkewnessValues, sampleSize);
-    let kurtosisValues = stst.calculateKurtosisValues(sample, mean, standardDeviation);
-    let kurtosis = stst.calculateKurtosis(kurtosisValues, sampleSize);
+    const mean = getMeanValue(sample);
+    const median = getMedianValue(sample);
+    const mode = getModeValue(sample);
 
-    stst.printHTML('.mean', `Média: ${mean}`);
-    stst.printHTML('.median', `Mediana: ${median}`);
-    stst.printHTML('.stdDeviation', `Desvio Padrão: ${standardDeviation}`);
-    stst.printHTML('.coefficientVariation', `Coeficiente de Variação: ${coefficientVariation}%`);
+    const standardDeviation = getStandardDeviationValue(sample, mean);
+    const variation = getVariationValue(standardDeviation, mean);
+    const skewness = getSkewnessValue(sample, mean, standardDeviation);
+    const kurtosis = getKurtosisValue(sample, mean, standardDeviation);
+
+    stst.printHTML('.mean', `Média: ${ mean }`);
+    stst.printHTML('.median', `Mediana: ${ median }`);
     stst.printHTML('.mode', `Moda: `);
-    stst.printHTML('.coefficientSkewness', `Assímetria: ${coefficientSkewness}`);
-    stst.printHTML('.kurtosis', `Curtose: ${kurtosis}`);
 
-    stst.printArray(mode, '.mode');
+    (mode != 0) ? stst.printList(mode, '.mode'): "";
 
-    if (mode.length == sampleSize) {
+    stst.printHTML('.stdDeviation', `Desvio Padrão: ${ standardDeviation }`);
+    stst.printHTML('.coefficientVariation', `Coeficiente de Variação: ${ variation }%`);
+    stst.printHTML('.coefficientSkewness', `Assímetria: ${ skewness }`);
+    stst.printHTML('.kurtosis', `Curtose: ${ kurtosis }`);
+
+    if (mode == 0) {
         stst.concatPrintHTML('.mode', '(Amodal)');
     } else if (mode.length == 1) {
         stst.concatPrintHTML('.mode', '(Unimodal)');
@@ -41,3 +39,34 @@ document.querySelector('.button').addEventListener('click', () => {
         stst.concatPrintHTML('.mode', '(Multimodal)');
     }
 });
+
+const getMeanValue = (sample) => {
+    return stst.mean(sample);
+}
+
+const getModeValue = (sample) => {
+    return stst.mode(sample);
+}
+
+const getMedianValue = (sample) => {
+    return stst.median(sample.sort());
+}
+
+const getStandardDeviationValue = (sample, mean) => {
+    let standardDeviationValues = stst.calculateStandardDeviationValues(sample, mean);
+    return stst.calculateStandardDeviation(standardDeviationValues, sample.length);
+}
+
+const getVariationValue = (standardDeviation, mean) => {
+    return stst.coefficientVariation(standardDeviation, mean);
+}
+
+const getSkewnessValue = (sample, mean, standardDeviation) => {
+    let coefficientSkewnessValues = stst.calculateCoefficientSkewnessValues(sample, mean, standardDeviation);
+    return stst.calculateCoefficientSkewness(coefficientSkewnessValues, sample.length);
+}
+
+const getKurtosisValue = (sample, mean, standardDeviation) => {
+    let kurtosisValues = stst.calculateKurtosisValues(sample, mean, standardDeviation);
+    return stst.calculateKurtosis(kurtosisValues, sample.length);
+}

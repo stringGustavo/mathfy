@@ -42,7 +42,7 @@ class Statistics extends Utility {
                 mode.push(num);
             }
         }
-        return mode.map(Number);
+        return (mode.length != sample.length) ? mode.map(Number) : 0;
     }
 
     calculateStandardDeviationValues (sample, mean) {

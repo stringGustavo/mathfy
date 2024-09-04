@@ -1,7 +1,7 @@
 class Utility {
 
-    printArray(array, id) {
-        array.forEach(element => {
+    printList (list, id) {
+        list.forEach((element) => {
             document.querySelector(`${id}`).innerHTML += `${element} `;
         });
     }
